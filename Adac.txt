@@ -49,7 +49,8 @@ public class Facebook extends Base_Class {
 		dropdown(bh.getYear(),"visibleText", "2030");
 		input(bh.getCvv(),"233");
 		press(bh.getBook());
-		
+
+                exit
 		
 		
 	}
