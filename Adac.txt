@@ -1,0 +1,56 @@
+package org.Project_batch_10Am;
+
+import org.Project_Batch_10AM.Base_Class;
+
+import com.pom.Book_hotel;
+import com.pom.Page_Object_login;
+import com.pom.Search_Hotel;
+import com.pom.Select_Hotel;
+
+public class Facebook extends Base_Class {
+
+
+	public static void main(String[] args) {
+
+		browser_launch("chrome");
+		url("http://adactinhotelapp.com/SearchHotel.php");
+
+		Page_Object_login pom = new Page_Object_login(driver);
+
+
+		input(pom.getUsername(), "reshmaresh");
+		input(pom.getPassword(), "pavi@0408");
+		press(pom.getLogin());
+
+		Search_Hotel sr = new Search_Hotel(driver);
+		dropdown(sr.getLoc(), "visibleText", "Sydney");
+		dropdown(sr.getHotel(), "visibleText", "Hotel Hervey");
+		dropdown(sr.getRoom(), "visibleText", "Standard");
+		dropdown(sr.getNos(), "index", "3");
+		input(sr.getCheckin(), "05/06/2023");
+		input(sr.getCheckout(), "07/06/2023");
+
+		dropdown(sr.getAdults(),"visibleText","3 - Three");
+		dropdown(sr.getChild(),"visibleText","2 - Two");
+		press(sr.getSubmit());
+		
+		Select_Hotel sh = new Select_Hotel(driver);
+		press(sh.getSelect());
+		press(sh.getCont());
+		
+	
+		Book_hotel bh = new Book_hotel(driver);
+		input(bh.getFname(),"Pavithran");
+		input(bh.getLname(),"pavi");
+		input(bh.getAdd(),"G/3, Sengulam Colony, Sydney");
+		input(bh.getCredit(),"1600 4500 6222 4502");
+		dropdown(bh.getType(),"visibleText","VISA");
+		dropdown(bh.getMon(),"visibleText","March");
+		dropdown(bh.getYear(),"visibleText", "2030");
+		input(bh.getCvv(),"233");
+		press(bh.getBook());
+		
+		
+		
+	}
+}
